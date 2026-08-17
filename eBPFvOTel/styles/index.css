@@ -1,0 +1,146 @@
+/* ── groundcover brand tokens ─────────────────────────────────────────
+   Extracted from "groundcover overview 07.01.2026 | Please Clone!.pptx"
+   Colors are the real fills used on the slides (the pptx theme block
+   still held Google Slides defaults, so those were ignored).
+   ------------------------------------------------------------------- */
+:root {
+  /* surfaces */
+  --gc-bg:        #F7F3F0;  /* warm cream page */
+  --gc-bg-2:      #F9F4F2;
+  --gc-bg-3:      #F3EEEA;
+  --gc-rule:      #E3DCD9;
+
+  /* ink */
+  --gc-ink:       #181818;
+  --gc-ink-2:     #101828;
+  --gc-navy:      #1E3048;
+  --gc-muted:     #8C9BAA;
+  --gc-slate:     #384653;
+
+  /* accents */
+  --gc-yellow:      #F6C73C;
+  --gc-yellow-deep: #EAB20B;
+  --gc-yellow-dark: #C39409;
+  --gc-yellow-pale: #FBE9B1;
+  --gc-green:       #00A47B;
+  --gc-green-2:     #319B6A;
+  --gc-blue:        #80A0FF;
+  --gc-blue-2:      #7FB4FA;
+
+  /* card tints */
+  --gc-tint-green:  #E8F5F0;
+  --gc-tint-yellow: #FDF4DC;
+  --gc-tint-blue:   #EDF0FE;
+
+  --gc-radius: 12px;
+}
+
+.slidev-layout {
+  line-height: 1.45;
+  background: var(--gc-bg);
+  color: var(--gc-ink);
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+  padding: 0;
+}
+
+/* ── slide chrome ─────────────────────────────────────────────────── */
+.gc-frame   { display: flex; flex-direction: column; height: 100%; padding: 26px 40px 30px; }
+.gc-header  { display: flex; align-items: flex-start; justify-content: space-between;
+              border-bottom: 1px solid var(--gc-rule); padding-bottom: 10px; margin-bottom: 26px; }
+/* high specificity: Slidev's base img rules otherwise blow the wordmark up */
+.slidev-layout img.gc-logo,
+.gc-logo    { height: 15px !important; width: auto !important; max-width: none;
+              display: block; align-self: flex-start; flex: 0 0 auto; object-fit: contain; }
+.gc-meta    { display: flex; gap: 22px; font-size: 9px; color: var(--gc-ink);
+              letter-spacing: .01em; padding-top: 2px; }
+.gc-meta .gc-num { color: var(--gc-muted); font-variant-numeric: tabular-nums; }
+.gc-body    { flex: 1; min-height: 0; }
+
+/* ── type scale ───────────────────────────────────────────────────── */
+.gc-title    { font-size: 34px; font-weight: 800; letter-spacing: -.022em;
+               line-height: 1.06; margin: 0; }
+.gc-sub      { font-size: 13px; color: var(--gc-slate); margin: 10px 0 0;
+               line-height: 1.45; max-width: 62ch; }
+.gc-eyebrow  { font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 500;
+               font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+               color: var(--gc-muted); }
+.gc-hl-y { color: var(--gc-yellow-dark); font-weight: 700; }
+.gc-hl-g { color: var(--gc-green); font-weight: 700; }
+
+/* ── card row (the 3-pillar pattern) ──────────────────────────────── */
+.gc-cards { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+            gap: 18px; height: 100%; }
+.gc-card  { border-radius: var(--gc-radius); border: 1.5px solid; padding: 18px 18px 20px;
+            display: flex; flex-direction: column; }
+.gc-card--green  { background: var(--gc-tint-green);  border-color: var(--gc-green); }
+.gc-card--yellow { background: var(--gc-tint-yellow); border-color: var(--gc-yellow); }
+.gc-card--blue   { background: var(--gc-tint-blue);   border-color: var(--gc-blue); }
+.gc-card__icon   { font-size: 22px; line-height: 1; margin-bottom: 26px; }
+.gc-card__title  { font-size: 17px; font-weight: 700; letter-spacing: -.01em; margin: 0 0 12px; }
+.gc-card__list   { list-style: none !important; padding: 0 !important; margin: 0;
+                   display: grid; gap: 11px; }
+.gc-card__list li { position: relative; padding-left: 15px; font-size: 11px;
+                    line-height: 1.4; color: var(--gc-slate);
+                    list-style: none !important; }
+.gc-card__list li::marker { content: ''; }
+.gc-card__list li::before { content: ''; position: absolute; left: 0; top: .42em;
+                            width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.gc-card--green  .gc-card__list li::before { background: var(--gc-green); }
+.gc-card--yellow .gc-card__list li::before { background: var(--gc-yellow-deep); }
+.gc-card--blue   .gc-card__list li::before { background: var(--gc-blue); }
+
+/* ── stat tiles ───────────────────────────────────────────────────── */
+.gc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.gc-stat  { background: var(--gc-bg-3); border-radius: var(--gc-radius); padding: 14px 16px 16px; }
+.gc-stat__n { font-size: 40px; font-weight: 800; letter-spacing: -.04em; line-height: 1;
+              font-variant-numeric: tabular-nums; }
+.gc-stat__l { font-size: 10px; color: var(--gc-slate); margin-top: 8px; line-height: 1.35; }
+.gc-pill  { background: var(--gc-yellow); border-radius: var(--gc-radius);
+            padding: 13px 16px; font-size: 12px; font-weight: 600; text-align: center; }
+.gc-pill--dark { background: var(--gc-ink); color: #fff; border-radius: 999px;
+                 display: inline-block; padding: 9px 20px; font-weight: 500; }
+
+/* ── numbered progression ─────────────────────────────────────────── */
+.gc-steps { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 22px; }
+.gc-step  { border-radius: var(--gc-radius); padding: 14px 16px 16px; }
+.gc-step:nth-child(1) { background: var(--gc-yellow-pale); }
+.gc-step:nth-child(2) { background: var(--gc-yellow); }
+.gc-step:nth-child(3) { background: var(--gc-yellow-deep); }
+.gc-step__n { font-size: 11px; font-weight: 600; color: var(--gc-yellow-dark); }
+.gc-step:nth-child(3) .gc-step__n { color: var(--gc-ink); }
+.gc-step__t { font-size: 13px; font-weight: 700; letter-spacing: .04em;
+              text-transform: uppercase; margin: 6px 0 6px; }
+.gc-step__d { font-size: 11px; color: var(--gc-slate); }
+.gc-step:nth-child(3) .gc-step__d { color: var(--gc-ink); }
+
+/* ── comparison table ─────────────────────────────────────────────── */
+.gc-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.gc-table th { text-align: left; font-size: 9px; letter-spacing: .09em; text-transform: uppercase;
+               color: var(--gc-muted); font-weight: 600; padding: 0 12px 9px 0;
+               border-bottom: 1px solid var(--gc-rule); }
+.gc-table td { padding: 11px 12px 11px 0; border-bottom: 1px solid var(--gc-rule);
+               font-variant-numeric: tabular-nums; }
+.gc-table .gc-win  { color: var(--gc-green); font-weight: 700; }
+.gc-table .gc-lose { color: var(--gc-muted); }
+
+/* ── hero ─────────────────────────────────────────────────────────── */
+.gc-hero      { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; height: 100%;
+                align-items: center; }
+.gc-hero__h1  { font-size: 42px; font-weight: 800; letter-spacing: -.03em; line-height: 1.03;
+                margin: 0; }
+.gc-hero__sub { font-size: 12px; line-height: 1.5 !important; margin-top: 18px;
+                color: var(--gc-ink); }
+.gc-hero__art { border-radius: var(--gc-radius); overflow: hidden; }
+.gc-hero__art img { width: 100%; display: block; }
+.gc-hero__art-ph { aspect-ratio: 4 / 3; border: 1.5px dashed var(--gc-rule);
+                   border-radius: var(--gc-radius); display: flex; flex-direction: column;
+                   align-items: center; justify-content: center; text-align: center;
+                   font-size: 10px; color: var(--gc-muted); line-height: 1.7; }
+.gc-logos     { display: flex; flex-wrap: wrap; gap: 12px 20px; margin-top: 30px;
+                font-size: 11px; font-weight: 600; color: var(--gc-slate); }
+
+/* ── statement / closing ──────────────────────────────────────────── */
+.gc-statement { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+.gc-statement__h { font-size: 50px; font-weight: 800; letter-spacing: -.035em;
+                   line-height: 1.02; margin: 0; }
